@@ -202,7 +202,7 @@ i {
   top: 0;
 }
 
-input {
+.inputByName , .inputByLetter {
   position: relative;
   z-index: 999999;
 }
