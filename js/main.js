@@ -80,7 +80,7 @@ $(function () {
     $(".item").on("click", function () {
       let item = $(this);
       let mealName = item.find("h2").html();
-      
+
       let clickedMeal = meals.find((meal) => meal.strMeal === mealName);
       if (clickedMeal) {
         displayInstructions(clickedMeal);
@@ -214,7 +214,7 @@ $(function () {
       let imgSrc = categories[i].strCategoryThumb;
       let category = categories[i].strCategory;
       categoryData += `
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="item">
                         <img src="${imgSrc}" class="w-100" alt="">
                         <div class="layer"><h2>${category}</h2></div>
@@ -226,7 +226,7 @@ $(function () {
     $(".item").on("click", function () {
       let item = $(this);
       let category = item.find("h2").html();
-      
+
       displayMealsByCategory(category);
     });
   }
@@ -241,7 +241,7 @@ $(function () {
 
     let apiResonse = await mealAPI.json();
     filteredMeals = apiResonse.meals;
-    
+
     displayFilteredMeals();
     $(".loadingScreen").fadeOut(300);
   }
@@ -277,7 +277,7 @@ $(function () {
 
     let apiResonse = await mealAPI.json();
     const meal = apiResonse.meals[0];
-    
+
     displayInstructions(meal);
     $(".loadingScreen").fadeOut(300);
   }
@@ -320,7 +320,6 @@ $(function () {
     $(".area").on("click", function () {
       let item = $(this);
       let area = item.find("h3").html();
-      console.log(area);
       getMealsByArea(area);
     });
   }
@@ -375,7 +374,7 @@ $(function () {
     $(".ingredient").on("click", function () {
       let item = $(this);
       let ingredient = item.find("h3").html();
-      
+
       getMealsByingredient(ingredient);
     });
   }
