@@ -70,7 +70,7 @@ $(function () {
       mealsData += `
       <div class="col-md-4 col-lg-3">
                     <div class="item">
-                        <img src="${imgSrc}" class="w-100" alt="">
+                        <img src="${imgSrc}" class="w-100" alt="${mealName}">
                         <div class="layer"><h2>${mealName}</h2></div>
                     </div>
                 </div>`;
@@ -216,7 +216,7 @@ $(function () {
       categoryData += `
       <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="item">
-                        <img src="${imgSrc}" class="w-100" alt="">
+                        <img src="${imgSrc}" class="w-100" alt="${category}">
                         <div class="layer"><h2>${category}</h2></div>
                     </div>
                 </div>`;
@@ -255,7 +255,7 @@ $(function () {
       mealsData += `
       <div class="col-md-3">
                     <div class="item">
-                        <img src="${imgSrc}" class="w-100" alt="">
+                        <img src="${imgSrc}" class="w-100" alt="${mealName}">
                         <div class="layer"><h2 data-id="${mealId}">${mealName}</h2></div>
                     </div>
                 </div>`;
