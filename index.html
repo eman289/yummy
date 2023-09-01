@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore the world of delicious recipes with Yummy! 
+      Discover a vast collection of meals, categorized by name, ingredients, area, and more.
+      Our user-friendly interface allows you to search, view, and even get cooking instructions for your favorite dishes. 
+      Yummy - Your gateway to culinary delights!"
+    />
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+    <title>Yummy</title>
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="loadingScreen">
+      <div class="loader"></div>
+    </div>
+    <nav class="sideBar d-flex">
+      <div class="innerBar d-flex flex-column justify-content-between p-4">
+        <ul class="navLinks ps-0 overflow-hidden">
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Area</a></li>
+          <li><a href="#">Ingredients</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="info">
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="copyrights">
+            <p>Copyright © 2023 All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="outerBar d-flex flex-column justify-content-between align-items-center bg-white text-black py-4 px-2"
+      >
+        <div class="logo">
+          <img src="./images/logo.png" class="w-100" alt="logo" />
+        </div>
+        <div class="openCloseBtn">
+          <i class="fa-solid fa-bars fa-2x"></i>
+        </div>
+        <div class="icons d-flex flex-column gap-2">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="data p-5">
+        <div class="container w-75">
+          <div class="row g-4 mb-5" id="searchBox"></div>
+          <div class="row g-4" id="mealsData"></div>
+          <div class="contact" id="contactBox"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/jquery-3.7.0.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
