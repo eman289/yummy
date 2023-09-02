@@ -18,6 +18,11 @@ h6 {
   color: #fff;
 }
 
+::selection {
+  background-color: #fff;
+  color: #000;
+}
+
 a {
   text-decoration: none;
 }
@@ -202,7 +207,8 @@ i {
   top: 0;
 }
 
-.inputByName , .inputByLetter {
+.inputByName,
+.inputByLetter {
   position: relative;
   z-index: 999999;
 }
