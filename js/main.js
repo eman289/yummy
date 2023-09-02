@@ -1,6 +1,7 @@
 /// <reference types="../@types/jquery" />
 
 $(function () {
+  
   //============= Loading Screen
 
   $(".loadingScreen").fadeOut(1000, function () {
@@ -48,7 +49,6 @@ $(function () {
 
   async function getMeals() {
     $(".loadingScreen").fadeIn(300);
-
     let mealAPI = await fetch(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=`
     );
@@ -117,8 +117,8 @@ $(function () {
                 <ul class="list-unstyled d-flex flex-wrap g-3">
                     ${Ingredients}
                 </ul>
-                <a href="${meal.strSource}" class="btn btn-success">Source</a>
-                <a href="${meal.strYoutube}" class="btn btn-danger">Youtube</a>
+                <a href="${meal.strSource}" class="btn btn-success" target="_blank">Source</a>
+                <a href="${meal.strYoutube}" class="btn btn-danger" target="_blank">Youtube</a>
             </div>`;
 
     dataContainer.html(`${mealInfo}`);
