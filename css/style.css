@@ -140,7 +140,7 @@ i {
   left: 0;
   top: 0;
   height: 100vh;
-  z-index: 99999999;
+  z-index: 99;
   background-color: black;
   color: #fff;
 }
@@ -210,7 +210,7 @@ i {
 .inputByName,
 .inputByLetter {
   position: relative;
-  z-index: 999999;
+  z-index: 9999;
 }
 
 input::placeholder {

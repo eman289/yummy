@@ -3,7 +3,7 @@
 $(function () {
   //============= Loading Screen
 
-  $(".loadingScreen").fadeOut(1000, function () {
+  $(".loadingScreen").fadeOut(700, function () {
     $("body").css("overflow", "auto");
   });
 
@@ -47,7 +47,6 @@ $(function () {
   let meals = [];
 
   async function getMeals() {
-    $(".loadingScreen").fadeIn(300);
     let mealAPI = await fetch(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=`
     );
@@ -56,7 +55,6 @@ $(function () {
     meals = apiResonse.meals;
 
     displayMeals();
-    $(".loadingScreen").fadeOut(300);
   }
 
   getMeals();
@@ -66,11 +64,12 @@ $(function () {
     for (let i = 0; i < meals.length; i++) {
       let imgSrc = meals[i].strMealThumb;
       let mealName = meals[i].strMeal;
+      let mealId = meals[i].idMeal;
       mealsData += `
       <div class="col-md-4 col-lg-3">
                     <div class="item">
-                        <img src="${imgSrc}" class="w-100" alt="${mealName}">
-                        <div class="layer"><h2>${mealName}</h2></div>
+                        <img src="${imgSrc}" loading="lazy" class="w-100" alt="${mealName}">
+                        <div class="layer"><h2 data-id="${mealId}">${mealName}</h2></div>
                     </div>
                 </div>`;
     }
@@ -78,12 +77,8 @@ $(function () {
 
     $(".item").on("click", function () {
       let item = $(this);
-      let mealName = item.find("h2").html();
-
-      let clickedMeal = meals.find((meal) => meal.strMeal === mealName);
-      if (clickedMeal) {
-        displayInstructions(clickedMeal);
-      }
+      let mealId = item.find("h2").attr("data-id");
+      getMealById(mealId);
     });
   }
 
@@ -174,6 +169,7 @@ $(function () {
     contactContainer.html("");
     closeSideBar();
     searchMealInputs();
+    sideBar.css("z-index", 99999);
   });
 
   function searchMealInputs() {
@@ -237,7 +233,7 @@ $(function () {
       categoryData += `
       <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="item">
-                        <img src="${imgSrc}" class="w-100" alt="${category}">
+                        <img src="${imgSrc}" class="w-100" loading="lazy" alt="${category}">
                         <div class="layer"><h2>${category}</h2></div>
                     </div>
                 </div>`;
@@ -276,7 +272,7 @@ $(function () {
       mealsData += `
       <div class="col-md-3">
                     <div class="item">
-                        <img src="${imgSrc}" class="w-100" alt="${mealName}">
+                        <img src="${imgSrc}" class="w-100" loading="lazy" alt="${mealName}">
                         <div class="layer"><h2 data-id="${mealId}">${mealName}</h2></div>
                     </div>
                 </div>`;
