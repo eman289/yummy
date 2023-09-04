@@ -1,7 +1,6 @@
 /// <reference types="../@types/jquery" />
 
 $(function () {
-  
   //============= Loading Screen
 
   $(".loadingScreen").fadeOut(1000, function () {
@@ -99,6 +98,24 @@ $(function () {
       }
     }
 
+    let mealTags = [];
+    if (
+      meal.hasOwnProperty("strTags") &&
+      meal.strTags !== null &&
+      meal.strTags !== undefined &&
+      meal.strTags !== ""
+    ) {
+      mealTags = meal.strTags.split(",");
+    } else {
+      mealTags = [];
+    }
+
+    let tags = ``;
+    for (let i = 0; i < mealTags.length; i++) {
+      tags += `
+        <li class="alert alert-danger m-2 p-1">${mealTags[i]}</li>`;
+    }
+
     let mealInfo = ` 
             <div class="col-lg-4">
               <img
@@ -113,9 +130,13 @@ $(function () {
                 <p>${meal.strInstructions}</p>
                 <h3><span class="fw-bold">Area: </span>${meal.strArea}</h3>
                 <h3><span class="fw-bold">Category: </span>${meal.strCategory}</h3>
-                <h3><span class="fw-bold">Ingredient:</span></h3>
+                <h3><span class="fw-bold">Ingredients:</span></h3>
                 <ul class="list-unstyled d-flex flex-wrap g-3">
                     ${Ingredients}
+                </ul>
+                  <h3><span class="fw-bold">Tags:</span></h3>
+                <ul class="list-unstyled d-flex flex-wrap g-3">
+                    ${tags}
                 </ul>
                 <a href="${meal.strSource}" class="btn btn-success" target="_blank">Source</a>
                 <a href="${meal.strYoutube}" class="btn btn-danger" target="_blank">Youtube</a>
